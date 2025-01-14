@@ -5,8 +5,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from transformers import pipeline
 import altair as alt
+from keybert import KeyBERT
 
-# Database Functions
+
 conn = sqlite3.connect('users.db')
 c = conn.cursor()
 c.execute('''
@@ -70,6 +71,7 @@ else:
     st.sidebar.write(f"Welcome, {st.session_state['username']}!")
 
     sentiment_analysis = pipeline("sentiment-analysis")
+    kw_model = KeyBERT()
 
     uploaded_file = st.file_uploader("📄 Upload Call Transcript (Text File)", type=["txt"])
 
@@ -94,7 +96,14 @@ else:
             else:
                 negative_scores.append(1 - score)
 
-            results.append({"Transcript": transcript.strip(), "Sentiment": label, "Score": score})
+            keywords = kw_model.extract_keywords(transcript, top_n=3)
+
+            results.append({
+                "Transcript": transcript.strip(),
+                "Sentiment": label,
+                "Score": score,
+                "Key Phrases": [kw[0] for kw in keywords]
+            })
 
         total_lines = len(transcripts)
         avg_positive_score = sum(positive_scores) / total_lines if positive_scores else 0
@@ -131,10 +140,21 @@ else:
 
         st.write(f"### Final Sentiment Score: {final_score:.2f}")
 
-        st.write("### 🛠️ Sales Tips Based on Sentiment")
         if final_score > 0.7:
-            st.success("The overall sentiment is highly positive! Focus on closing the deal by offering a personalized discount or loyalty program.")
+            st.success("The overall sentiment is highly positive!")
+            st.write("### 📝 Tips for Positive Sentiments:")
+            st.write("- Offer personalized discounts or loyalty programs.")
+            st.write("- Emphasize exclusive benefits of your product.")
+            st.write("- Encourage the customer to share their positive experience.")
         elif 0.4 <= final_score <= 0.7:
-            st.info("The sentiment is mostly neutral. Highlight the key benefits of your product and address any remaining concerns.")
+            st.info("The sentiment is mostly neutral.")
+            st.write("### 📝 Tips for Neutral Sentiments:")
+            st.write("- Ask open-ended questions to understand the customer's needs.")
+            st.write("- Highlight key benefits that address specific concerns.")
+            st.write("- Build rapport by sharing success stories.")
         else:
-            st.warning("The sentiment is leaning negative. Focus on empathizing with the customer's concerns and offering solutions to their problems.")
+            st.warning("The sentiment is leaning negative.")
+            st.write("### 📝 Tips for Negative Sentiments:")
+            st.write("- Empathize with the customer's concerns and offer solutions.")
+            st.write("- Avoid aggressive sales tactics; focus on listening.")
+            st.write("- Provide a satisfaction guarantee or risk-free trial.")
