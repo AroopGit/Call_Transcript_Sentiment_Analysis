@@ -6,3 +6,4 @@ matplotlib
 requests
 bcrypt 
 sqlalchemy
+keybert
