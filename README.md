@@ -37,7 +37,10 @@ Follow these steps to set up and run the project locally:
 
 
 ![image](https://github.com/user-attachments/assets/f01d67e2-aebf-49ea-a924-7a582d97683f)
+![image](https://github.com/user-attachments/assets/557079be-3200-456d-a5cf-e331cfae7b3a)
 
-   ![image](https://github.com/user-attachments/assets/941aae04-9577-4665-8548-474140f865fa)
-   ![image](https://github.com/user-attachments/assets/e47e240d-a5b5-4434-b1a9-c54abec171ad)
+![image](https://github.com/user-attachments/assets/00b70946-09cc-4913-a361-c57ff8913ec4)
+
+![image](https://github.com/user-attachments/assets/9ffda6b6-9f6f-484f-a13f-e4f1f61b34a6)
+
 
