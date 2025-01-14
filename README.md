@@ -34,3 +34,10 @@ Follow these steps to set up and run the project locally:
    ```bash
    git clone https://github.com/your-username/call-transcript-sentiment-analysis-tool.git
    cd call-transcript-sentiment-analysis-tool
+
+
+   ![image](https://github.com/user-attachments/assets/f01d67e2-aebf-49ea-a924-7a582d97683f)
+
+   ![image](https://github.com/user-attachments/assets/941aae04-9577-4665-8548-474140f865fa)
+   ![image](https://github.com/user-attachments/assets/e47e240d-a5b5-4434-b1a9-c54abec171ad)
+
