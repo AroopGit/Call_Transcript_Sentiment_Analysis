@@ -3,7 +3,7 @@
 Welcome to the **Call Transcript Sentiment Analysis Tool**!  
 This is a web-based application built using **Streamlit** that allows users to upload call transcripts (text files) and perform **sentiment analysis** using pre-trained NLP models from the **Transformers** library. The app provides **visual insights** and **actionable sales tips** based on the sentiment results to help businesses improve their customer interactions.
 
-working link: https://call-transcript-demo.streamlit.app/
+working link: https://call-transcript.streamlit.app/
 
 ---
 
